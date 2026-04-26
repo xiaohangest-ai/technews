@@ -1,0 +1,38 @@
+name: Tech Daily
+
+on:
+  schedule:
+    # 每天 0:00 UTC = 北京时间 8:00
+    # 注意：GitHub Actions 的 cron 可能延迟 5-30 分钟（高峰期更久），不是分秒精确
+    - cron: "0 0 * * *"
+  workflow_dispatch:  # 允许在 GitHub UI 上手动触发，方便调试
+
+# 单实例运行 —— 同一时刻只跑一个，避免被手动触发重叠造成重复推送
+concurrency:
+  group: tech-daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Tech Daily
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_SECRET: ${{ secrets.APP_SECRET }}
+          OPEN_ID: ${{ secrets.OPEN_ID }}
+          # 如需走飞书国内域，把这个 secret 设为 https://open.feishu.cn/open-apis
+          LARK_BASE: ${{ secrets.LARK_BASE }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python3 tech_daily.py
