@@ -47,7 +47,8 @@ def _require_env(name: str) -> str:
 APP_ID = _require_env("APP_ID")
 APP_SECRET = _require_env("APP_SECRET")
 OPEN_ID = _require_env("OPEN_ID")
-LARK_BASE = os.environ.get("LARK_BASE", "https://open.larksuite.com/open-apis").rstrip("/")
+
+LARK_BASE = (os.environ.get("LARK_BASE") or "https://open.larksuite.com/open-apis").rstrip("/")
 
 CST = timezone(timedelta(hours=8))  # 北京时间
 
