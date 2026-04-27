@@ -4,7 +4,7 @@ on:
   schedule:
     # 每天 0:00 UTC = 北京时间 8:00
     # 注意：GitHub Actions 的 cron 可能延迟 5-30 分钟（高峰期更久），不是分秒精确
-    - cron: "0 0 * * *"
+    - cron: "5 0 * * *"
   workflow_dispatch:  # 允许在 GitHub UI 上手动触发，方便调试
 
 # 单实例运行 —— 同一时刻只跑一个，避免被手动触发重叠造成重复推送
