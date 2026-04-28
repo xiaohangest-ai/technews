@@ -151,7 +151,7 @@ Secrets 是 GitHub 给你存敏感信息（密码/Token）的地方，外人看�
 3. **Secret** 框里粘贴：
 
    ```
-   cli_a9676bfbaa38de18
+   cli_xxxx
    ```
 
 4. 点绿色的 **Add secret**
@@ -163,7 +163,7 @@ Secrets 是 GitHub 给你存敏感信息（密码/Token）的地方，外人看�
 3. **Secret**：
 
    ```
-   xKEDQdNBE4e9m6ux1KnUVhud6q7nF1Ou
+   xKEDQdNBE4e9m6xxxxxxxxxxxxxxx
    ```
 
 4. **Add secret**
@@ -175,7 +175,7 @@ Secrets 是 GitHub 给你存敏感信息（密码/Token）的地方，外人看�
 3. **Secret**：
 
    ```
-   ou_41ec840bc7195069cfe933a17f8638f3
+   ou_41ec840bc7195069xxxxxxxx
    ```
 
 4. **Add secret**
